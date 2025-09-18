@@ -1,27 +1,39 @@
 # py-nvtool
-"HiveOS nvtool" rewritten in Python for Linux and Windows.
+"HiveOS nvtool" rewritten in Python for Linux and Windows
 
-Due to limitations of the Nvidia NVML library, `--setmem` works only on GPUs of the 30xx series and newer.
+Due to the Nvidia NVML library, ```--setmem``` works only for 30xx series GPUs and newer.
 
-## Install & Run
+## Install
 
-### Linux
-# Download
+#### Linux
+```
 wget https://github.com/Th0rn7/py-nvtool/releases/download/nvtool/py-nvtool.py
 chmod +x py-nvtool.py
 cp py-nvtool.py /usr/sbin/py-nvtool
+```
 
-# Run
-sudo py-nvtool [options]
+#### Windows
+Python 3 is required.
 
-### Windows
-# Python 3 is required
+```
 wget https://github.com/Th0rn7/py-nvtool/releases/download/nvtool/py-nvtool.py
+```
 
-# Run in administrator terminal
+## Run
+
+#### Linux
+```
+sudo py-nvtool [options]
+```
+
+#### Windows
+Run the terminal as administrator:
+```
 py py-nvtool.py [options]
+```
 
-## Options
+#### Options
+```
   -i|--index NUM                Query specified GPU only
   -a|--all                      Get GPU info
   --setpl NUM                   Set GPU power limit (W), 0 - default
@@ -30,15 +42,22 @@ py py-nvtool.py [options]
   --setfan NUM                  Set fan speed (%), 0 - default
   --setcoreoffset NUM           Set CORE clock offset (MHz), 0 - default
   --setmemoffset NUM            Set MEM clock offset (MHz), 0 - default
+```
 
-## Example
+#### Example
+```
 sudo py-nvtool --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
+```
 
 ## Docs
-- NVIDIA Device Commands: https://docs.nvidia.com/deploy/nvml-api/group__nvmlDeviceCommands.html
-- Python bindings for NVIDIA Management Library: https://pypi.org/project/nvidia-ml-py/
 
----
+### NVIDIA Device Commands
+https://docs.nvidia.com/deploy/nvml-api/group__nvmlDeviceCommands.html
 
-This project is Open Source under the GPL-3.0-or-later license.
+### Python bindings to the NVIDIA Management Library
+https://pypi.org/project/nvidia-ml-py/
+
+
+______________
+This project is Open Source under GPL-3.0-or-later  
 My fork: https://github.com/Th0rn7/py-nvtool/releases/download/nvtool/py-nvtool.py
